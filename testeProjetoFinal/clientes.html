@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Clientes</title>
+
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body onload="listarClientes()">
+
+<div class="page">
+
+    <h1>Cadastro de Clientes</h1>
+
+    <div class="form">
+
+        <input type="hidden" id="id">
+
+        <div class="row">
+
+            <div>
+                <label>Tipo Cliente</label>
+
+                <select id="tipo">
+                    <option value="">Selecione</option>
+                    <option>PF</option>
+                    <option>PJ</option>
+                </select>
+            </div>
+
+            <div>
+                <label>CPF/CNPJ</label>
+                <input type="text" id="cpf">
+            </div>
+
+        </div>
+
+        <div>
+            <label>Nome</label>
+            <input type="text" id="nome">
+        </div>
+
+        <div class="buttons">
+
+            <button class="btn-success" onclick="salvarCliente()">
+                Salvar
+            </button>
+
+            <button class="btn-secondary" onclick="limparCliente()">
+                Limpar
+            </button>
+
+        </div>
+
+    </div>
+
+    <table>
+
+        <thead>
+
+        <tr>
+            <th>ID</th>
+            <th>Tipo</th>
+            <th>CPF/CNPJ</th>
+            <th>Nome</th>
+            <th>Ações</th>
+        </tr>
+
+        </thead>
+
+        <tbody id="listaClientes">
+
+        </tbody>
+
+    </table>
+
+</div>
+
+</body>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+<script src="js/supabase.js"></script>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <title>Document</title>
+    <style>
+        body{
+            font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+        }
+        .calculadora{
+            margin: 50px;
+            height: 600px;
+            width: 300px;
+            background-color: #bbb;
+            border-radius: 20px;
+            
+           
+            box-shadow: 5px 4px #21130d rgba(0,0,0,0.74);
+            
+        }
+        #resultado{
+            height: 400px;
+            width: 250px;
+            background-color: aliceblue;
+            margin: 25px;
+            border-radius: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="calculadora" >
+        <h1>Insira o valor:</h1><br>
+        <input type="number" id="numeroTabuada">
+        <button type="button" class="btn btn-primary" onclick="realizaTabuada()">Calcular</button>
+        <div id="resultado"></div>
+    </div>
+
+    <div id="prox"><a href="contRegress.html">Proxima Atividade</a></div>
+</body>
+<script src="tabuada.js"></script>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Categorias</title>
+
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body onload="listarCategorias()">
+
+<div class="page">
+
+    <h1>Categorias</h1>
+
+    <div class="form">
+
+        <label>Descrição</label>
+
+        <input type="text" id="descricao">
+
+        <div class="buttons">
+
+            <button class="btn-success" onclick="salvarCategoria()">
+                Salvar
+            </button>
+
+            <button class="btn-secondary"
+            onclick="document.getElementById('descricao').value=''">
+            Limpar
+            </button>
+
+        </div>
+
+    </div>
+
+    <table>
+
+        <thead>
+
+        <tr>
+            <th>ID</th>
+            <th>Descrição</th>
+            <th>Ações</th>
+        </tr>
+
+        </thead>
+
+        <tbody id="listaCategorias">
+
+        </tbody>
+
+    </table>
+
+    <button type="button" class="btn btn-secondary" >Home</button>
+
+</div>
+
+</body>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+<script src="js/supabase.js"></script>
+</html>

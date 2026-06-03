@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lanchonete</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="container">
+    <header>
+      <h1>🍔 Lanchonete</h1>
+      <p>Selecione os itens do seu pedido</p>
+    </header>
+
+    <div class="menu">
+      <h2>Cardápio</h2>
+
+      <div class="item" onclick="toggleItem(this)">
+        <div class="item-info">
+          <input type="checkbox" onchange="calcular()">
+          <span class="item-emoji">🍔</span>
+          <span class="item-nome">X-Burguer</span>
+        </div>
+        <span class="item-preco" data-preco="12.00">R$ 12,00</span>
+      </div>
+
+      <div class="item" onclick="toggleItem(this)">
+        <div class="item-info">
+          <input type="checkbox" onchange="calcular()">
+          <span class="item-emoji">🍟</span>
+          <span class="item-nome">Batata Frita</span>
+        </div>
+        <span class="item-preco" data-preco="7.00">R$ 7,00</span>
+      </div>
+
+      <div class="item" onclick="toggleItem(this)">
+        <div class="item-info">
+          <input type="checkbox" onchange="calcular()">
+          <span class="item-emoji">🌭</span>
+          <span class="item-nome">Cachorro-Quente</span>
+        </div>
+        <span class="item-preco" data-preco="9.00">R$ 9,00</span>
+      </div>
+
+      <div class="item" onclick="toggleItem(this)">
+        <div class="item-info">
+          <input type="checkbox" onchange="calcular()">
+          <span class="item-emoji">🥤</span>
+          <span class="item-nome">Refrigerante</span>
+        </div>
+        <span class="item-preco" data-preco="5.00">R$ 5,00</span>
+      </div>
+
+      <div class="item" onclick="toggleItem(this)">
+        <div class="item-info">
+          <input type="checkbox" onchange="calcular()">
+          <span class="item-emoji">🧃</span>
+          <span class="item-nome">Suco Natural</span>
+        </div>
+        <span class="item-preco" data-preco="6.50">R$ 6,50</span>
+      </div>
+
+      <div class="item" onclick="toggleItem(this)">
+        <div class="item-info">
+          <input type="checkbox" onchange="calcular()">
+          <span class="item-emoji">🍦</span>
+          <span class="item-nome">Sorvete</span>
+        </div>
+        <span class="item-preco" data-preco="8.00">R$ 8,00</span>
+      </div>
+    </div>
+
+    <div class="entrega">
+      <div class="entrega-opcao" id="opcaoEntrega" onclick="toggleEntrega()">
+        <input type="checkbox" id="checkEntrega" onchange="calcular()">
+        <span>🛵 Entrega em domicílio</span>
+        <span class="entrega-taxa">+ R$ 4,00</span>
+      </div>
+    </div>
+
+    <div class="resumo">
+      <div id="listaResumo">
+        <p class="resumo-vazio">Nenhum item selecionado</p>
+      </div>
+      <div class="resumo-total">
+        <span>Total</span>
+        <span id="totalFinal">R$ 0,00</span>
+      </div>
+    </div>
+
+    <button class="btn-pedido" onclick="confirmarPedido()">Confirmar Pedido</button>
+  </div>
+
+  <div class="modal-overlay" id="modalOverlay">
+    <div class="modal">
+      <h2>Pedido Confirmado! ✅</h2>
+      <p id="modalTexto"></p>
+      <button onclick="fecharModal()">Ok, obrigado!</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

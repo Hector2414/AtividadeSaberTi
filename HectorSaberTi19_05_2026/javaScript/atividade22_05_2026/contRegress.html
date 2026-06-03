@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" 
+    rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <title>Document</title>
+    <style>
+
+        @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
+
+        body{
+            font-family:"Oswald", sans-serif;
+        }
+
+        #numeros{
+            height: 600px;
+            width: 300px;
+            background-color: tomato;
+            border-radius: 5px;
+            box-shadow: 5px 5px 5px 5px;
+            padding: 25px;
+            margin: 50px;
+        }
+        input{
+            height: 30px;
+            border-radius: 10px;
+            
+        }
+        #resultado{
+            width: 250px;
+            height: 330px;
+            background-color: #fff;
+            border-radius: 5px;
+            overflow-y: auto;
+            padding: 10px;
+        }
+        /* #prox{
+            height: 600px;
+            width: 120px;
+            background-color: red;
+            color: black;
+            display: flex;
+        } */
+    </style>
+</head>
+<body>
+    
+    <div id="numeros">
+        <label for="prValor">Digite valor 1: </label><br>
+        <input type="number" id="prValor"><br><br>
+        <label for="secValor">Digite valor 2: </label><br>
+        <input type="number" id="secValor"><br><br>
+        <button type="button" class="btn btn-success" onclick="contagemEntreNumeros()">Success</button><br><br>
+
+        <div id="resultado">
+        
+        </div>
+    </div>
+   
+<div id="prox">
+    <a href="contDePares.html">Próxima Atividade</a>
+</div>
+</body>
+<script src="contRegress.js"></script>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Orçamentos</title>
+
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body onload="listarClientes(); listarProdutos()">
+
+<div class="page">
+
+<h1>Orçamento</h1>
+
+<div class="form">
+
+<label>Cliente</label>
+
+<select id="cliente">
+</select>
+
+<label>Data Orçamento</label>
+<input type="date" id="data_orcamento">
+
+<label>Validade</label>
+<input type="date" id="data_validade">
+
+<hr>
+
+<h3>Adicionar Item</h3>
+
+<select id="produto">
+</select>
+
+<input
+type="number"
+id="qtd"
+placeholder="Quantidade">
+
+<input
+type="number"
+id="valor"
+placeholder="Valor Unitário">
+
+<button class="btn-success" onclick="adicionarItem()">
+Adicionar
+</button>
+
+</div>
+
+<h2>Total: <span id="total">R$ 0,00</span></h2>
+
+<div class="buttons">
+    <button class="btn-success" onclick="salvarOrcamento()">
+        Salvar Orçamento
+    </button>
+</div>
+
+<table>
+
+<thead>
+
+<tr>
+<th>Produto</th>
+<th>Qtd</th>
+<th>Valor</th>
+<th>Total</th>
+<th>Ações</th>
+</tr>
+
+</thead>
+
+<tbody id="itens">
+
+</tbody>
+
+</table>
+
+</div>
+
+</body>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+<script src="js/supabase.js"></script>
+</html>

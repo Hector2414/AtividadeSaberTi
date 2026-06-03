@@ -1,0 +1,35 @@
+
+
+body{
+    /* text-align: center;  */
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+#titulo{
+    color: #0000FF;
+}
+
+/* form{
+    /* background-color: darkolivegreen; 
+}*/
+ 
+label{
+    font-weight: bold;
+}
+
+input, select,textarea,.botao{
+    padding-block: 6px;
+    border-radius: 8px ;
+    margin-bottom: 8px;
+}
+
+.botao{
+    width: 90px;
+    height: 40px;
+    background-color: #0000FF;
+    color: white;
+    
+}
+

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="CSS/login.css">
+    <title>Login</title>
+</head>
+<body>
+
+    <div class="card login-card">
+        <div class="card-body">
+
+            <!-- Logo -->
+            <div class="login-logo">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/>
+                </svg>
+            </div>
+
+            <p class="login-title">Bem-vindo</p>
+            <p class="login-subtitle">Faça login para acessar o sistema</p>
+
+            <!-- Formulário -->
+            <form id="formLogin" novalidate>
+
+                <div class="mb-3">
+                    <label for="usuario" class="form-label fw-semibold">Usuário</label>
+                    <input type="text" class="form-control" id="usuario" placeholder="Digite seu usuário" required autofocus>
+                    <div class="invalid-feedback">Informe o usuário.</div>
+                </div>
+
+                <div class="mb-4">
+                    <label for="senha" class="form-label fw-semibold">Senha</label>
+                    <div class="input-group">
+                        <input type="password" class="form-control" id="senha" placeholder="Digite sua senha" required>
+                        <button class="btn btn-outline-secondary" type="button" id="toggleSenha" tabindex="-1" title="Mostrar/ocultar senha">
+                            <svg id="iconeOlho" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                                <circle cx="12" cy="12" r="3"/>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="invalid-feedback d-block" id="feedbackSenha" style="display:none!important;"></div>
+                </div>
+
+                <div class="d-grid">
+                    <button type="submit" class="btn btn-login btn-lg">Entrar</button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-YUe2LzesAfftltw+PEaao2tjU/QATaW/rOitAq67e0CT0Zi2VVRL0oC4+gAaeBKu" crossorigin="anonymous"></script>
+    <script src="JavaScript/login.js"></script>
+</body>
+</html>
