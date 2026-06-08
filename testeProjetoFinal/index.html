@@ -10,71 +10,174 @@
 </head>
 <body>
 
-<div class="container">
+<div class="app-container">
+    <!-- Botão toggle da sidebar -->
+    <button class="sidebar-toggle" id="sidebarToggle">
+        ☰
+    </button>
 
-    <aside class="sidebar">
-
-        <h2>SCP</h2>
-
-        <nav>
-
-            <a href="clientes.html">
-                Clientes
-            </a>
-
-            <a href="categorias.html">
-                Categorias
-            </a>
-
-            <a href="produtos.html">
-                Produtos
-            </a>
-
-            <a href="orcamentos.html">
-                Orçamentos
-            </a>
-
-            <a href="index.html">
-                Sair
-            </a>
-
-        </nav>
-
-    </aside>
-
-    <main class="content">
-
-        <h1>Dashboard</h1>
-
-        <div class="cards">
-
-            <div class="card">
-                <h3>Clientes</h3>
-                <p>Gerenciar clientes</p>
+    <div class="main-layout">
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <h2>SCP</h2>
+                <button class="sidebar-close" id="sidebarClose">×</button>
             </div>
 
-            <div class="card">
-                <h3>Categorias</h3>
-                <p>Gerenciar categorias</p>
+            <nav>
+                <a href="clientes.html">
+                    <span class="nav-icon">👥</span>
+                    <span class="nav-text">Clientes</span>
+                </a>
+
+                <a href="categorias.html">
+                    <span class="nav-icon">📁</span>
+                    <span class="nav-text">Categorias</span>
+                </a>
+
+                <a href="produtos.html">
+                    <span class="nav-icon">📦</span>
+                    <span class="nav-text">Produtos</span>
+                </a>
+
+                <a href="orcamentos.html">
+                    <span class="nav-icon">💰</span>
+                    <span class="nav-text">Orçamentos</span>
+                </a>
+
+                <a href="index.html" class="logout-btn">
+                    <span class="nav-icon">🚪</span>
+                    <span class="nav-text">Sair</span>
+                </a>
+            </nav>
+        </aside>
+
+        <main class="content" id="mainContent">
+            <h1>Dashboard</h1>
+
+            <div class="cards">
+                <div class="card">
+                    <h3>Clientes</h3>
+                    <p>Gerenciar clientes</p>
+                </div>
+
+                <div class="card">
+                    <h3>Categorias</h3>
+                    <p>Gerenciar categorias</p>
+                </div>
+
+                <div class="card">
+                    <h3>Produtos</h3>
+                    <p>Gerenciar produtos</p>
+                </div>
+
+                <div class="card">
+                    <h3>Orçamentos</h3>
+                    <p>Gerenciar orçamentos</p>
+                </div>
             </div>
-
-            <div class="card">
-                <h3>Produtos</h3>
-                <p>Gerenciar produtos</p>
-            </div>
-
-            <div class="card">
-                <h3>Orçamentos</h3>
-                <p>Gerenciar orçamentos</p>
-            </div>
-
-        </div>
-
-    </main>
-
+        </main>
+    </div>
 </div>
+
+<!-- Overlay para fechar sidebar em dispositivos móveis -->
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
 
 </body>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
 <script src="js/supabase.js"></script>
+<script>
+// Controle da sidebar para desktop e mobile
+const sidebar = document.getElementById('sidebar');
+const toggleBtn = document.getElementById('sidebarToggle');
+const closeBtn = document.getElementById('sidebarClose');
+const overlay = document.getElementById('sidebarOverlay');
+const mainContent = document.getElementById('mainContent');
+
+// Verificar se é mobile
+function isMobile() {
+    return window.innerWidth <= 768;
+}
+
+// Abrir sidebar
+function openSidebar() {
+    sidebar.classList.add('active');
+    
+    if (isMobile()) {
+        overlay.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    } else {
+        // Em desktop, adiciona classe para ajustar o conteúdo
+        document.querySelector('.main-layout').classList.add('sidebar-open');
+        // Salvar estado no localStorage
+        localStorage.setItem('sidebarOpen', 'true');
+    }
+}
+
+// Fechar sidebar
+function closeSidebar() {
+    sidebar.classList.remove('active');
+    
+    if (isMobile()) {
+        overlay.classList.remove('active');
+        document.body.style.overflow = '';
+    } else {
+        document.querySelector('.main-layout').classList.remove('sidebar-open');
+        localStorage.setItem('sidebarOpen', 'false');
+    }
+}
+
+// Alternar sidebar
+function toggleSidebar() {
+    if (sidebar.classList.contains('active')) {
+        closeSidebar();
+    } else {
+        openSidebar();
+    }
+}
+
+// Event listeners
+toggleBtn.addEventListener('click', toggleSidebar);
+closeBtn.addEventListener('click', closeSidebar);
+overlay.addEventListener('click', closeSidebar);
+
+// Carregar estado salvo da sidebar em desktop
+function loadSidebarState() {
+    if (!isMobile()) {
+        const savedState = localStorage.getItem('sidebarOpen');
+        if (savedState === 'true') {
+            openSidebar();
+        } else if (savedState === 'false') {
+            closeSidebar();
+        } else {
+            // Estado padrão: sidebar aberta em desktop
+            openSidebar();
+        }
+    }
+}
+
+// Monitorar redimensionamento da tela
+let resizeTimer;
+window.addEventListener('resize', () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(() => {
+        if (isMobile()) {
+            // Em mobile, fechar overlay se estiver aberto
+            if (sidebar.classList.contains('active') && overlay.classList.contains('active')) {
+                // Mantém aberto apenas a sidebar, overlay é para mobile
+            } else if (sidebar.classList.contains('active')) {
+                closeSidebar();
+            }
+        } else {
+            // Em desktop, remover overlay
+            overlay.classList.remove('active');
+            document.body.style.overflow = '';
+            // Recarregar estado para desktop
+            loadSidebarState();
+        }
+    }, 250);
+});
+
+// Inicializar
+loadSidebarState();
+</script>
 </html>
