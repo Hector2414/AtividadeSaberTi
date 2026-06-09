@@ -1,4 +1,17 @@
-function toggleSidebar(){
+// function toggleSidebar(){
+
+//     document
+//         .getElementById("sidebar")
+//         .classList
+//         .toggle("collapsed");
+
+//     document
+//         .getElementById("mainContent")
+//         .classList
+//         .toggle("expanded");
+// }
+
+function toggleSidebar() {
 
     document
         .getElementById("sidebar")
@@ -6,7 +19,7 @@ function toggleSidebar(){
         .toggle("collapsed");
 
     document
-        .getElementById("mainContent")
+        .querySelector(".main-content")
         .classList
         .toggle("expanded");
 }

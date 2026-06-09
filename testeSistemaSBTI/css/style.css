@@ -23,12 +23,24 @@ body{
 
     transition:0.3s;
 }
-.sidebar.collapsed{
+/* .sidebar.collapsed{
     width:70px;
+} */
+.sidebar.collapsed{
+    width:85px;
 }
 
-.main-content.expanded{
+/* .main-content.expanded{
     margin-left:70px;
+} */
+
+/* .main-content.expanded{
+    margin-left:70px;
+    width:calc(100% - 70px);
+} */
+.main-content.expanded{
+    margin-left:85px;
+    width:calc(100% - 85px);
 }
 
 .sidebar.collapsed span{
@@ -100,19 +112,36 @@ body{
 
 /* CONTEÚDO */
 
-.main-content{
+/* .main-content{
 
     margin-left:250px;
     padding:30px;
 
     transition:0.3s;
+} */
+/*Acima é o antigo */
+.main-content{
+    margin-left:250px;
+    width:calc(100% - 250px);
+
+    min-height:100vh;
+
+    padding:30px;
+
+    transition:all 0.3s ease;
 }
 
-h1{
+/* h1{
 
     margin-bottom:20px;
 
     color:#1e293b;
+} */
+
+.main-content h1{
+    margin-bottom:30px;
+    color:#1e293b;
+    font-size:42px;
 }
 
 /* CARDS */
@@ -295,4 +324,18 @@ table tr:hover{
 .container-login button{
 
     width:100%;
+}
+
+.main-content{
+    overflow-x:auto;
+}
+
+table{
+    min-width:900px;
+}
+
+/* IMAGEM NEYMAR */
+
+#meninoNey{
+    display: none;
 }
