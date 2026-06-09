@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Produtos</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <div class="sidebar" id="sidebar">
+
+    <div class="logo">
+        <h2>SCP</h2>
+
+        <button id="btnMenu" onclick="toggleSidebar()">
+            ☰
+        </button>
+    </div>
+
+    <ul>
+
+        <li><a href="home.html">🏠 <span>Dashboard</span></a></li>
+
+        <li><a href="clientes.html">👥 <span>Clientes</span></a></li>
+
+        <li><a href="categorias.html">📁 <span>Categorias</span></a></li>
+
+        <li><a href="produtos.html">📦 <span>Produtos</span></a></li>
+
+        <li><a href="orcamentos.html">💰 <span>Orçamentos</span></a></li>
+
+        <li><a href="index.html">🚪 <span>Sair</span></a></li>
+
+    </ul>
+
+</div>
+
+<div class="main-content" id="mainContent">
+
+    <!-- conteúdo -->
+
+</div>
+
+    <div class="main-content">
+
+        <h1>Cadastro de Clientes</h1>
+
+        <!-- formulário -->
+
+    </div>
+
+
+    <h1>Cadastro de Produtos</h1>
+
+    <div class="formulario">
+
+        <input type="hidden" id="produtoId">
+
+        <label>Categoria</label>
+
+        <select id="categoria">
+            <option value="">Selecione</option>
+        </select>
+
+        <label>Descrição</label>
+        <input type="text" id="descricao">
+
+        <label>Observação</label>
+        <textarea id="observacao"></textarea>
+
+        <label>Valor Venda</label>
+        <input type="number" id="valorVenda" step="0.01">
+
+        <label>Data Cadastro</label>
+        <input type="date" id="dataCadastro">
+
+        <label>Status</label>
+
+        <select id="status">
+            <option value="">Selecione</option>
+            <option value="ATIVO">ATIVO</option>
+            <option value="INATIVO">INATIVO</option>
+        </select>
+
+        <button onclick="salvarProduto()">
+            Salvar
+        </button>
+
+        <button onclick="limparFormulario()">
+            Limpar
+        </button>
+
+        <a href="home.html">
+            <button>Voltar</button>
+        </a>
+
+    </div>
+
+    <table id="tbProdutos">
+
+    </table>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="js/supabase.js"></script>
+    <script src="js/produtos.js"></script>
+    <script src="js/sidebar.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Clientes</title>
+</head>
+<body>
+    <div class="sidebar" id="sidebar">
+
+    <div class="logo">
+        <h2>SCP</h2>
+
+        <button id="btnMenu" onclick="toggleSidebar()">
+            ☰
+        </button>
+    </div>
+
+    <ul>
+
+        <li><a href="home.html">🏠 <span>Dashboard</span></a></li>
+
+        <li><a href="clientes.html">👥 <span>Clientes</span></a></li>
+
+        <li><a href="categorias.html">📁 <span>Categorias</span></a></li>
+
+        <li><a href="produtos.html">📦 <span>Produtos</span></a></li>
+
+        <li><a href="orcamentos.html">💰 <span>Orçamentos</span></a></li>
+
+        <li><a href="index.html">🚪 <span>Sair</span></a></li>
+
+    </ul>
+
+</div>
+
+<div class="main-content" id="mainContent">
+
+    <!-- conteúdo -->
+
+</div>
+
+    <div class="main-content">
+
+        <h1>Cadastro de Clientes</h1>
+
+        <!-- formulário -->
+
+    </div>
+
+    <h1>Clientes</h1>
+
+    <input id="tipoCliente" placeholder="PF ou PJ">
+    <input id="cpfCnpj" placeholder="CPF/CNPJ">
+    <input id="nomeCliente" placeholder="Nome">
+
+    <button onclick="salvarCliente()">Salvar</button>
+
+    <table id="tbClientes">
+
+    </table>
+</body>
+<script src="js/clientes.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="js/supabase.js"></script>
+<script src="js/sidebar.js"></script>
+</html>

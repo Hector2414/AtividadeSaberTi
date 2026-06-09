@@ -1,0 +1,298 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+body{
+    background:#f4f7fc;
+}
+
+/* SIDEBAR */
+
+.sidebar{
+    position:fixed;
+    left:0;
+    top:0;
+
+    width:250px;
+    height:100vh;
+
+    background:#1e293b;
+
+    transition:0.3s;
+}
+.sidebar.collapsed{
+    width:70px;
+}
+
+.main-content.expanded{
+    margin-left:70px;
+}
+
+.sidebar.collapsed span{
+    display:none;
+}
+
+.sidebar.collapsed a{
+    text-align:center;
+}
+
+#btnMenu{
+    width:40px;
+    height:40px;
+
+    border:none;
+
+    background:#2563eb;
+    color:white;
+
+    border-radius:8px;
+
+    cursor:pointer;
+}
+
+.logo{
+    text-align:center;
+    margin-bottom:40px;
+}
+
+.logo h2{
+    color:#60a5fa;
+    font-size:32px;
+}
+
+.logo span{
+    font-size:14px;
+    color:#cbd5e1;
+}
+
+.sidebar ul{
+    list-style:none;
+}
+
+.sidebar ul li{
+    margin-bottom:15px;
+}
+
+.sidebar ul li a{
+
+    display:block;
+
+    padding:12px;
+
+    text-decoration:none;
+
+    color:white;
+
+    border-radius:8px;
+
+    transition:.3s;
+}
+
+.sidebar ul li a:hover{
+
+    background:#2563eb;
+
+    transform:translateX(5px);
+}
+
+/* CONTEÚDO */
+
+.main-content{
+
+    margin-left:250px;
+    padding:30px;
+
+    transition:0.3s;
+}
+
+h1{
+
+    margin-bottom:20px;
+
+    color:#1e293b;
+}
+
+/* CARDS */
+
+.cards{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(220px,1fr));
+
+    gap:20px;
+}
+
+.card{
+
+    background:white;
+
+    padding:25px;
+
+    border-radius:12px;
+
+    box-shadow:
+    0 3px 10px rgba(0,0,0,.1);
+
+    transition:.3s;
+}
+
+.card:hover{
+
+    transform:translateY(-5px);
+}
+
+.card h3{
+
+    color:#2563eb;
+}
+
+.card p{
+
+    margin-top:10px;
+
+    color:#555;
+}
+
+/* FORMULÁRIOS */
+
+.formulario{
+
+    background:white;
+
+    padding:25px;
+
+    border-radius:12px;
+
+    box-shadow:
+    0 3px 10px rgba(0,0,0,.08);
+
+    margin-bottom:20px;
+}
+
+.formulario label{
+
+    display:block;
+
+    margin-top:10px;
+    margin-bottom:5px;
+
+    font-weight:bold;
+}
+
+input,
+select,
+textarea{
+
+    width:100%;
+
+    padding:10px;
+
+    border:1px solid #d1d5db;
+
+    border-radius:8px;
+
+    margin-bottom:10px;
+}
+
+/* BOTÕES */
+
+button{
+
+    background:#2563eb;
+
+    color:white;
+
+    border:none;
+
+    padding:10px 18px;
+
+    border-radius:8px;
+
+    cursor:pointer;
+
+    margin-right:5px;
+
+    transition:.3s;
+}
+
+button:hover{
+
+    background:#1d4ed8;
+}
+
+/* TABELAS */
+
+table{
+
+    width:100%;
+
+    background:white;
+
+    border-collapse:collapse;
+
+    border-radius:12px;
+
+    overflow:hidden;
+
+    box-shadow:
+    0 3px 10px rgba(0,0,0,.08);
+}
+
+table th{
+
+    background:#2563eb;
+
+    color:white;
+
+    padding:12px;
+}
+
+table td{
+
+    padding:12px;
+
+    border-bottom:
+    1px solid #e5e7eb;
+}
+
+table tr:hover{
+
+    background:#f8fafc;
+}
+
+/* LOGIN */
+
+.container-login{
+
+    width:400px;
+
+    background:white;
+
+    padding:40px;
+
+    border-radius:15px;
+
+    box-shadow:
+    0 5px 20px rgba(0,0,0,.1);
+
+    margin:100px auto;
+}
+
+.container-login h1{
+
+    text-align:center;
+
+    color:#2563eb;
+
+    margin-bottom:20px;
+}
+
+.container-login button{
+
+    width:100%;
+}

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Orçamentos</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <div class="sidebar" id="sidebar">
+
+    <div class="logo">
+        <h2>SCP</h2>
+
+        <button id="btnMenu" onclick="toggleSidebar()">
+            ☰
+        </button>
+    </div>
+
+    <ul>
+
+        <li><a href="home.html">🏠 <span>Dashboard</span></a></li>
+
+        <li><a href="clientes.html">👥 <span>Clientes</span></a></li>
+
+        <li><a href="categorias.html">📁 <span>Categorias</span></a></li>
+
+        <li><a href="produtos.html">📦 <span>Produtos</span></a></li>
+
+        <li><a href="orcamentos.html">💰 <span>Orçamentos</span></a></li>
+
+        <li><a href="index.html">🚪 <span>Sair</span></a></li>
+
+    </ul>
+
+</div>
+
+<div class="main-content" id="mainContent">
+
+    <!-- conteúdo -->
+
+</div>
+
+    <div class="main-content">
+
+        <h1>Cadastro de Clientes</h1>
+
+        <!-- formulário -->
+
+    </div>
+
+    <h1>Orçamentos</h1>
+
+    <div class="formulario">
+
+        <label>Cliente</label>
+
+        <select id="cliente">
+            <option value="">Selecione</option>
+        </select>
+
+        <label>Data Orçamento</label>
+        <input type="date" id="dataOrcamento">
+
+        <label>Data Validade</label>
+        <input type="date" id="dataValidade">
+
+    </div>
+
+    <hr>
+
+    <h2>Adicionar Item</h2>
+
+    <div class="formulario">
+
+        <label>Produto</label>
+
+        <select id="produto">
+            <option value="">Selecione</option>
+        </select>
+
+        <label>Quantidade</label>
+        <input type="number" id="quantidade">
+
+        <label>Valor Unitário</label>
+        <input type="number" id="valorUnitario" step="0.01">
+
+        <button onclick="adicionarItem()">
+            Adicionar Item
+        </button>
+
+    </div>
+
+    <table id="tbItens">
+
+        <thead>
+
+            <tr>
+                <th>Produto</th>
+                <th>Quantidade</th>
+                <th>Valor Unitário</th>
+                <th>Total</th>
+                <th>Ações</th>
+            </tr>
+
+        </thead>
+
+        <tbody>
+
+        </tbody>
+
+    </table>
+
+    <br>
+
+    <label>Total Geral</label>
+
+    <input
+        type="text"
+        id="valorTotal"
+        readonly>
+
+    <br><br>
+
+    <button onclick="salvarOrcamento()">
+        Salvar Orçamento
+    </button>
+
+    <a href="home.html">
+        <button>
+            Voltar
+        </button>
+    </a>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="js/supabase.js"></script>
+    <script src="js/orcamentos.js"></script>
+    <script src="js/sidebar.js"></script>
+
+</body>
+
+</html>
