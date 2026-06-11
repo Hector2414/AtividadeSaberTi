@@ -84,15 +84,30 @@ async function salvarProduto() {
 
 async function listarProdutos() {
 
-    const { data } =
-        await supabaseClient
-            .from("produtos")
-            .select(`
-                *,
-                categorias (
-                    descricao
-                )
-            `);
+    const pesquisa =
+    document.getElementById("pesquisaProduto")
+    ?.value || "";
+
+    const status =
+    document.getElementById("filtroStatus")
+    ?.value || "";
+
+    let query = supabaseClient
+    .from("produtos")
+    .select(`
+        *,
+        categorias(descricao)
+    `);
+
+    if (pesquisa) {
+    query = query.ilike("descricao", `%${pesquisa}%`);
+    }
+
+    if (status) {
+    query = query.eq("status", status);
+    }
+
+const { data } = await query;
 
     let html = `
         <tr>

@@ -40,10 +40,20 @@ async function salvarCliente() {
 //-------------------------------
 async function listarClientes(){
 
-    const { data } =
-        await supabaseClient
-        .from("clientes")
-        .select("*");
+    // const { data } =
+    //     await supabaseClient
+    //     .from("clientes")
+    //     .select("*");
+
+    const pesquisa =
+    document.getElementById("pesquisaCliente")
+    ?.value || "";
+
+    const { data } = await supabaseClient
+    .from("clientes")
+    .select("*")
+    .ilike("nome", `%${pesquisa}%`)
+    .order("nome");
 
     let html = `
     <tr>

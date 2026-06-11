@@ -338,4 +338,7 @@ table{
 
 #meninoNey{
     display: none;
+    width: 400px;
+    height: 450px;
+    box-shadow: #1d4ed8;
 }

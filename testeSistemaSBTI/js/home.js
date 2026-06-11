@@ -3,6 +3,8 @@ function mostrar(){
     let textoCopa = document.getElementById('textoMotivacional');
 
     neymar.style.display = "block";
-    textoCopa.innerHTML = "A copa é nossa 🏆";
+    textoCopa.innerHTML = "Ei galera a copa é nossa 🏆";
+    textoCopa.style.backgroundColor = "Amarelo";
+    textoCopa.style.color = "green";
 
 }

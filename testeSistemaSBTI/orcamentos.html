@@ -132,7 +132,32 @@
         </button>
     </a>
 
+
+    <div class="formulario">
+
+    <h2>Consultar Orçamentos</h2>
+
+    <input
+        type="text"
+        id="pesquisaOrcamento"
+        placeholder="Pesquisar por código ou nome do cliente">
+
+    <button onclick="listarOrcamentos()">
+        Pesquisar
+    </button>
+
     </div>
+
+        <table id="tbOrcamentos">
+
+        </table>
+
+        <br>
+        <hr>
+        <br>
+    </div>
+
+    
 
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script src="js/supabase.js"></script>

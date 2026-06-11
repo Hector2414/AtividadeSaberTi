@@ -23,7 +23,7 @@ async function carregarClientes() {
         `;
     });
 }
-
+//----------------------------------------------------------
 async function carregarProdutos() {
 
     const { data } =
@@ -61,7 +61,7 @@ document.addEventListener("change", function (e) {
             option.dataset.valor || "";
     }
 });
-
+//----------------------------------------------------------
 function adicionarItem() {
 
     const produtoSelect =
@@ -107,7 +107,7 @@ function adicionarItem() {
 
     renderizarItens();
 }
-
+//---------------------------------------------------------------------------
 function renderizarItens() {
 
     const tbody =
@@ -152,14 +152,143 @@ function renderizarItens() {
     document.getElementById("valorTotal").value =
         totalGeral.toFixed(2);
 }
-
+//------------------------------------------------------------------------------
 function removerItem(indice) {
 
     itens.splice(indice, 1);
 
     renderizarItens();
 }
+//-------------------------------------------------------------------------------
 
+async function listarOrcamentos() {
+
+    const pesquisa =
+        document.getElementById("pesquisaOrcamento")
+        ?.value || "";
+
+    let query = supabaseClient
+        .from("orcamentos")
+        .select(`
+            *,
+            clientes(nome)
+        `)
+        .order("id", { ascending: false });
+
+    const numero = parseInt(pesquisa);
+
+    if (pesquisa) {
+
+        if (!isNaN(numero)) {
+
+            query = query.eq("id", numero);
+
+        } else {
+
+            query = query.ilike(
+                "clientes.nome",
+                `%${pesquisa}%`
+            );
+        }
+    }
+
+    const { data, error } = await query;
+
+    if (error) {
+
+        console.log(error);
+        alert(error.message);
+        return;
+    }
+
+    let html = `
+        <tr>
+            <th>Código</th>
+            <th>Cliente</th>
+            <th>Data</th>
+            <th>Validade</th>
+            <th>Total</th>
+            <th>Ações</th>
+        </tr>
+    `;
+
+    data.forEach(orcamento => {
+
+        html += `
+            <tr>
+
+                <td>${orcamento.id}</td>
+
+                <td>
+                    ${orcamento.clientes?.nome || ""}
+                </td>
+
+                <td>
+                    ${orcamento.data_orcamento}
+                </td>
+
+                <td>
+                    ${orcamento.data_validade}
+                </td>
+
+                <td>
+                    R$ ${Number(
+                        orcamento.valor_total
+                    ).toFixed(2)}
+                </td>
+
+                <td>
+
+                    <button onclick="visualizarOrcamento('${orcamento.id}')">
+                        +
+                    </button>
+
+                </td>
+
+            </tr>
+        `;
+    });
+
+    document.getElementById("tbOrcamentos").innerHTML =
+        html;
+}
+//------------------------------------------------------------------------------------
+
+async function visualizarOrcamento(id) {
+
+    const { data, error } =
+        await supabaseClient
+            .from("itens_orcamento")
+            .select(`
+                *,
+                produtos(descricao)
+            `)
+            .eq("orcamento_id", id);
+
+    if (error) {
+
+        alert(error.message);
+        return;
+    }
+
+    let mensagem =
+        `Itens do orçamento #${id}\n\n`;
+
+    data.forEach(item => {
+
+        mensagem +=
+            `${item.produtos.descricao}\n` +
+            `Qtd: ${item.quantidade}\n` +
+            `Valor: R$ ${Number(item.valor_unitario).toFixed(2)}\n` +
+            `Total: R$ ${Number(item.valor_total).toFixed(2)}\n\n`;
+    });
+
+    alert(mensagem);
+
+    console.log("ID recebido:", id);
+}
+
+//---------------------------------------------------------------------------------------
 async function salvarOrcamento() {
 
     const clienteId =
@@ -234,5 +363,9 @@ async function salvarOrcamento() {
     renderizarItens();
 }
 
+// carregarClientes();
+// carregarProdutos();
+
 carregarClientes();
 carregarProdutos();
+listarOrcamentos();

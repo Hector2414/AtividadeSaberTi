@@ -42,12 +42,65 @@ async function salvarCategoria() {
     listarCategorias();
 }
 
+// async function listarCategorias() {
+
+    
+
+//     const { data, error } =
+//         await supabaseClient
+//             .from("categorias")
+//             .select("*")
+//             .order("descricao");
+
+//     if (error) {
+//         console.log(error);
+//         return;
+//     }
+
+//     let html = `
+//         <tr>
+//             <th>Descrição</th>
+//             <th>Ações</th>
+//         </tr>
+//     `;
+
+//     data.forEach(cat => {
+
+//         html += `
+//         <tr>
+
+//             <td>${cat.descricao}</td>
+
+//             <td>
+
+//                 <button onclick="editarCategoria('${cat.id}')">
+//                     Editar
+//                 </button>
+
+//                 <button onclick="excluirCategoria('${cat.id}')">
+//                     Excluir
+//                 </button>
+
+//             </td>
+
+//         </tr>
+//         `;
+//     });
+
+//     document.getElementById("tbCategorias").innerHTML = html;
+// }
+
 async function listarCategorias() {
+
+    const pesquisa =
+        document.getElementById("pesquisaCategoria")
+        ?.value || "";
 
     const { data, error } =
         await supabaseClient
             .from("categorias")
             .select("*")
+            .ilike("descricao", `%${pesquisa}%`)
             .order("descricao");
 
     if (error) {
